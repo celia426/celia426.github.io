@@ -249,6 +249,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/24/关于http协议/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Celia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/24/关于http协议/" itemprop="url">关于http协议</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-24T15:22:37+08:00">
+                2018-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="HTTP简介"><a href="#HTTP简介" class="headerlink" title="HTTP简介"></a>HTTP简介</h1><ul>
+<li>HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。</li>
+<li>HTTP是基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</li>
+<li>浏览器作为HTTP客户端通过URL向HTTP服务端即WEB服务器发送所有请求。Web服务器根据接收到的请求后，向客户端发送响应信息。</li>
+</ul>
+<h1 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h1><ul>
+<li>简单快速：客户向服务器请求服务时，只需传送请求方法和路径。请求方法常用的有GET、HEAD、POST。每种方法规定了客户与服务器联系的类型不同。由于HTTP协议简单，使得HTTP服务器的程序规模小，因而通信速度很快。</li>
+<li>灵活：HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记。</li>
+<li>无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。</li>
+<li>无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</li>
+</ul>
+<h1 id="HTTP之URL"><a href="#HTTP之URL" class="headerlink" title="HTTP之URL"></a>HTTP之URL</h1><ul>
+<li>HTTP使用统一资源标识符（Uniform Resource Identifiers, URI）来传输数据和建立连接。URL是一种特殊类型的URI，包含了用于查找某个资源的足够的信息URL,全称是UniformResourceLocator, 中文叫统一资源定位符,是互联网上用来标识某一处资源的地址。</li>
+<li>URL一般由三部组成：<br>1.协议(或称为服务方式)<br>2.存有该资源的主机IP地址(有时也包括端口号)<br>3.主机资源的具体地址。如目录和文件名等</li>
+</ul>
+<h1 id="HTTP之请求消息Request"><a href="#HTTP之请求消息Request" class="headerlink" title="HTTP之请求消息Request"></a>HTTP之请求消息Request</h1><ul>
+<li>客户端发送一个HTTP请求到服务器的请求消息包括以下格式：请求行（request line）、请求头部（header）、空行和请求数据四个部分组成。<br>1.请求行，用来说明请求类型,要访问的资源以及所使用的HTTP版本.<br>2.请求头部，紧接着请求行（即第一行）之后的部分，用来说明服务器要使用的附加信息<br>3.空行，请求头部后面的空行是必须的<br>4.请求数据也叫主体，可以添加任意的其他数据。</li>
+</ul>
+<h1 id="HTTP之响应消息Response"><a href="#HTTP之响应消息Response" class="headerlink" title="HTTP之响应消息Response"></a>HTTP之响应消息Response</h1><ul>
+<li>一般情况下，服务器接收并处理客户端发过来的请求后会返回一个HTTP的响应消息。HTTP响应也由四个部分组成，分别是：状态行、消息报头、空行和响应正文。<br>1.状态行，由HTTP协议版本号， 状态码， 状态消息 三部分组成。<br>2.消息报头，用来说明客户端要使用的一些附加信息<br>3.空行，消息报头后面的空行是必须的<br>4.响应正文，服务器返回给客户端的文本信息。</li>
+</ul>
+<h1 id="HTTP之状态码"><a href="#HTTP之状态码" class="headerlink" title="HTTP之状态码"></a>HTTP之状态码</h1><ul>
+<li>状态代码有三位数字组成，第一个数字定义了响应的类别，共分五种类别:<br>1xx：指示信息–表示请求已接收，继续处理<br>2xx：成功–表示请求已被成功接收、理解、接受<br>3xx：重定向–要完成请求必须进行更进一步的操作<br>4xx：客户端错误–请求有语法错误或请求无法实现<br>5xx：服务器端错误–服务器未能实现合法的请求</li>
+<li>常见状态码：<br>200 OK                        //客户端请求成功<br>400 Bad Request               //客户端请求有语法错误，不能被服务器所理解<br>401 Unauthorized              //请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用<br>403 Forbidden                 //服务器收到请求，但是拒绝提供服务<br>404 Not Found                 //请求资源不存在，eg：输入了错误的URL<br>500 Internal Server Error     //服务器发生不可预期的错误<br>503 Server Unavailable        //服务器当前不能处理客户端的请求，一段时间后可能恢复正常</li>
+</ul>
+<h1 id="HTTP工作原理"><a href="#HTTP工作原理" class="headerlink" title="HTTP工作原理"></a>HTTP工作原理</h1><p>以下是 HTTP 请求/响应的步骤：<br>1、客户端连接到Web服务器<br>一个HTTP客户端，通常是浏览器，与Web服务器的HTTP端口（默认为80）建立一个TCP套接字连接。<br>2、发送HTTP请求<br>通过TCP套接字，客户端向Web服务器发送一个文本的请求报文，一个请求报文由请求行、请求头部、空行和请求数据4部分组成。<br>3、服务器接受请求并返回HTTP响应<br>Web服务器解析请求，定位请求资源。服务器将资源复本写到TCP套接字，由客户端读取。一个响应由状态行、响应头部、空行和响应数据4部分组成。<br>4、释放连接TCP连接<br>若connection 模式为close，则服务器主动关闭TCP连接，客户端被动关闭连接，释放TCP连接;若connection 模式为keepalive，则该连接会保持一段时间，在该时间内可以继续接收请求。<br>5、客户端浏览器解析HTML内容<br>客户端浏览器首先解析状态行，查看表明请求是否成功的状态代码。然后解析每一个响应头，响应头告知以下为若干字节的HTML文档和文档的字符集。客户端浏览器读取响应数据HTML，根据HTML的语法对其进行格式化，并在浏览器窗口中显示。</p>
+<p>例如：在浏览器地址栏键入URL，按下回车之后会经历以下流程：<br>1、浏览器向 DNS 服务器请求解析该 URL 中的域名所对应的 IP 地址。<br>2、解析出 IP 地址后，根据该 IP 地址和默认端口 80，和服务器建立TCP连接。<br>3、浏览器发出读取文件(URL 中域名后面部分对应的文件)的HTTP 请求，该请求报文作为 TCP 三次握手的第三个报文的数据发送给服务器。<br>4、服务器对浏览器请求作出响应，并把对应的 html 文本发送给浏览器。<br>5、释放 TCP连接。<br>6、浏览器将该 html 文本并显示内容。</p>
+<h1 id="GET和POST请求的区别"><a href="#GET和POST请求的区别" class="headerlink" title="GET和POST请求的区别"></a>GET和POST请求的区别</h1><p>1.GET提交的数据会放在URL之后，以?分割URL和传输数据，参数之间以&amp;相连。POST方法是把提交的数据放在HTTP包的Body中。<br>2.GET提交的数据大小有限制（因为浏览器对URL的长度有限制），而POST方法提交的数据没有限制。<br>3.GET方式需要使用Request.QueryString来取得变量的值，而POST方式通过Request.Form来获取变量的值。<br>4.GET方式提交数据，会带来安全问题，比如一个登录页面，通过GET方式提交数据时，用户名和密码将出现在URL上，如果页面可以被缓存或者其他人可以访问这台机器，就可以从历史记录获得该用户的账号和密码。　</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/17/清除浮动/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -721,7 +868,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
