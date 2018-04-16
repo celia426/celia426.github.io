@@ -249,6 +249,247 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/二分搜索/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Celia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/16/二分搜索/" itemprop="url">二分搜索</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T19:52:35+08:00">
+                2018-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/快速排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Celia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/16/快速排序/" itemprop="url">快速排序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T19:23:42+08:00">
+                2018-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>快速排序算法是基于分治策略的一个算法，其基本过程如下：<br>1、先从数组中取出一个数作为基准数<br>2、将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边<br>3、再对左右区间重复第二步，直到各区间只有一个数<br>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void quicksort(int a[], int p, int r)</span><br><span class="line">&#123;</span><br><span class="line">    if(p&lt;r)&#123;</span><br><span class="line">        int q = partition(a, p, r);</span><br><span class="line">        quicksort(a, p, q-1);   //对左半段进行排序 </span><br><span class="line">        quicksort(a, q+1, r);   //对右半段进行排序 </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上述算法中的函数partition，以一个确定的基准元素对数组进行划分，它是快速排序的关键。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">int  partition(int a[], int p, int r)</span><br><span class="line">&#123;</span><br><span class="line">    int i = p, j = r + 1;</span><br><span class="line">    int x = a[p];</span><br><span class="line">    //将&lt;x的元素交换到左边区域 </span><br><span class="line">    //将&gt;x的元素交换到右边区域 </span><br><span class="line">    while(true)</span><br><span class="line">    &#123;</span><br><span class="line">        while(a[++i] &lt; x &amp;&amp; i &lt; r);</span><br><span class="line">        while(a[--j] &gt; x );</span><br><span class="line">        if(i &gt;= j) break;</span><br><span class="line">        swap(a[i],a[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    a[p] = a[j];</span><br><span class="line">    a[j] = x;</span><br><span class="line">    return j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>快速排序的运行时间与划分是否对称有关。<br>在最坏情况下，划分过程产生的两个区域分别包含n-1个元素和1个元素的时候，时间复杂度为O(n²)；在最好情况下，每次划分所取的基准恰好为中值，时间复杂度为O(nlogn)；在平均情况下时间复杂度为O(nlogn)。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/24/关于http协议/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -934,7 +1175,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -951,6 +1192,15 @@
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
