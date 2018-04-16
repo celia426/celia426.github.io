@@ -320,7 +320,9 @@
       
         
           
-            
+            <p>二分搜索算法的基本思想是将n个元素分成个数大致相同的两半，取a[n/2]与x作比较。<br>若x=a[n/2],则找到x，算法终止；<br>若x<a[n 2],则只在a的左半部继续搜索；="" 若x="">a[n/2],则只在a的右半部继续搜索。<br>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int search(int a[], int x, int n)</span><br><span class="line">&#123;</span><br><span class="line">    int left = 0, right = n - 1;</span><br><span class="line">    while(left &lt;= right)</span><br><span class="line">    &#123;</span><br><span class="line">        int middle = (left + right)/2;</span><br><span class="line">        if(x == a[middle]) return middle;</span><br><span class="line">        else if(x &gt; a[middle]) left = middle + 1;</span><br><span class="line">        else right = middle -1;</span><br><span class="line">    &#125;   </span><br><span class="line">    return -1;  //未找到x </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></a[n></p>
+<p>每执行一次while循环，带搜索数组大小减小一半，因此可在最坏情况下用O(logn)时间完成搜索任务。</p>
+
           
         
       
