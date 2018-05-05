@@ -249,6 +249,130 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/JavaScript函数调用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Celia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/05/JavaScript函数调用/" itemprop="url">JavaScript函数调用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T16:56:54+08:00">
+                2018-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在JavaScript中一共有四种调用模式：方法调用模式、函数调用模式、构造器调用模式、apply调用模式。</p>
+<h1 id="方法调用模式"><a href="#方法调用模式" class="headerlink" title="方法调用模式"></a>方法调用模式</h1><p>当一个函数被保存为对象的一个属性时，我们称它为一个方法，当一个方法被调用时，this被绑定到该对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//创建myObject对象，它有一个value属性和一个increment方法</span><br><span class="line">var myObject = &#123;</span><br><span class="line">    value : 0;</span><br><span class="line">    increment : function (inc) &#123;</span><br><span class="line">        this.value += typeof inc === &apos;number&apos; ? inc : 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">myObject.increment();</span><br><span class="line">document.writeln(myObject.value);   //1</span><br><span class="line"></span><br><span class="line">myObject.increment(2);</span><br><span class="line">document.writeln(myObject.value);   //3</span><br></pre></td></tr></table></figure></p>
+<h1 id="函数调用模式"><a href="#函数调用模式" class="headerlink" title="函数调用模式"></a>函数调用模式</h1><p>当一个函数并非一个对象的属性时，那么它就是被当做一个函数来调用的。<br>以此模式调用函数时，this被绑定到全局对象。这是语言设计上的一个错误。倘若语言设计正确，那么当内部函数被调用时，this应该仍然绑定到外部函数的this变量。这个设计错误的后果就是方法不能利用内部函数来帮助它工作，因为内部变量的this值被绑定了错误的值，所以不能共享对该对象的访问权。<br>解决方案为：如果该方法定义一个变量并赋值为this，那么内部函数就可以通过那个变量访问到this。按照约定，把那个变量命名为that。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//给myObject增加一个double方法。</span><br><span class="line"></span><br><span class="line">myObject.double = function () &#123;</span><br><span class="line">    var that = this;    //解决方法</span><br><span class="line"></span><br><span class="line">    var helper = function () &#123;</span><br><span class="line">        that.value = add(that.value,  that.value); </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    helper();   //以函数的形式调用</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//以方法的形式调用</span><br><span class="line">myObject.double();</span><br><span class="line">document.writeln(myObject.value);   //6</span><br></pre></td></tr></table></figure></p>
+<h1 id="构造器调用模式"><a href="#构造器调用模式" class="headerlink" title="构造器调用模式"></a>构造器调用模式</h1><p>一个函数，如果创建的目的就是希望结合new前缀来调用，那它就被称为构造器函数。<br>如果在一个函数前带上new来调用，那么将会创建一个连接到该函数的prototype成员的新对象，同时this被绑定到那个新对象上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var Que = function (string) &#123;</span><br><span class="line">    this.status = string;</span><br><span class="line">&#125;</span><br><span class="line">Que.prototype.get_status = function () &#123;</span><br><span class="line">    return this.status;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var myQue = new Que(&apos;haha&apos;);</span><br><span class="line">document.writeln(myQue.get_status());</span><br></pre></td></tr></table></figure></p>
+<h1 id="apply调用模式"><a href="#apply调用模式" class="headerlink" title="apply调用模式"></a>apply调用模式</h1><p>apply方法让我们构建一个参数数组传递给调用函数，接受两个参数：this的值和一个参数数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//构造一个包含status成员的对象</span><br><span class="line">var statusObject = &#123;</span><br><span class="line">    status : &apos;A-ok&apos;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//statusObject并没有继承自Que.prototype,但我们却可以在statusObject上调用get_status方法</span><br><span class="line">var status = Que.prototype.get_status.apply(statusObject);</span><br><span class="line">//status值为A-ok。</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/29/页面性能优化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1425,7 +1549,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1447,7 +1571,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
